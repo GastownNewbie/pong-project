@@ -55,6 +55,15 @@ export default class Ball {
           }
       }// paddleCollision
 
+      // add goal method
+      goal(player){
+          player.score++;
+          this.reset();
+          console.log(player.score);
+
+
+      }
+
       reset() {
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
@@ -76,14 +85,25 @@ export default class Ball {
         this.wallCollision();
         this.paddleCollision(player1, player2);
 
-
+        // draw ball
         let circle = document.createElementNS(SVG_NS, 'circle');
         circle.setAttributeNS(null, 'r', this.radius);
         circle.setAttributeNS(null, 'cx', this.x); // x position
         circle.setAttributeNS(null, 'cy', this.y);
         circle.setAttributeNS(null, 'fill', '#00FF00');
-        
         svg.appendChild(circle);
+
+        const rightGoal = this.x + this.radius >= this.boardWidth;
+        const leftGoal = this.x - this.radius <= 0;
+        if(rightGoal){
+            this.goal(player1);
+            this.direction = 1;
+
+        } else if(leftGoal){
+            this.goal(player2);
+            this.direction = -1;
+
+        }
 
 
     }
