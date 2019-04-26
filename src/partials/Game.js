@@ -37,17 +37,31 @@ export default class Game {
         (this.height - this.paddleHeight) / 2,
         KEYS.up,
         KEYS.down
-
-        
-
     );
     
     this.ball = new Ball(8, this.width, this.height);
+
+      document.addEventListener('keydown', (event) => {
+        console.log(event);
+        switch(event.key){
+          case KEYS.spaceBar:
+            this.pause = !this.pause;
+          break;
+        }
+        console.log(this.pause);
+});
 
   }
   	// End of constructor
 
   render() {
+
+
+    if(this.pause){
+      return;
+      // this line will not run is what return means
+    }
+
     // be sure to empty out the last frame before re-rendering
     this.gameElement.innerHTML = '';
     let svg = document.createElementNS(SVG_NS, "svg");
