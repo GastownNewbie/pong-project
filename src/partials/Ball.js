@@ -6,6 +6,9 @@ export default class Ball {
       this.boardWidth = boardWidth;
       this.boardHeight = boardHeight;
       this.direction = 1;
+      this.ping = new Audio('public/sounds/pong-01.wav');
+
+
       this.reset();
     
 }// end of constructor
@@ -25,6 +28,7 @@ export default class Ball {
           } else if(hitBottom || hitTop){ //top or bottom
             // how to flip the y vector
             this.vy = -this.vy;
+            
 
           }
       } //end of wall collision
@@ -40,6 +44,9 @@ export default class Ball {
            (this.y >= topY && this.y <= bottomY)
            ){
             this.vx = -this.vx;
+            // sound for hitting paddle
+            this.ping.play();
+
           }// end of if
         } else {
             // check the player1 collision
@@ -51,6 +58,9 @@ export default class Ball {
               (this.y >= topY && this.y <= bottomY)
             ){
               this.vx = -this.vx;
+              // sound for hitting paddle
+              this.ping.play();
+              
             }
           }
       }// paddleCollision
