@@ -1,11 +1,10 @@
 import{ SVG_NS, KEYS } from "../settings";
 
 export default class Ball {
-    constructor(radius, boardWidth, boardHeight, color) {
+    constructor(radius, boardWidth, boardHeight) {
       this.radius = radius;
       this.boardWidth = boardWidth;
       this.boardHeight = boardHeight;
-      this.color = "",
       this.direction = 1;
       this.reset();
     
@@ -43,9 +42,17 @@ export default class Ball {
             this.vx = -this.vx;
           }// end of if
         } else {
-          // check the player1 collision
-          
-        }
+            // check the player1 collision
+            let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
+            let [leftX, rightX, topY, bottomY] = paddle;
+            if(
+              (this.x - this.radius <= rightX) &&
+              (this.x - this.radius >= leftX) &&
+              (this.y >= topY && this.y <= bottomY)
+            ){
+              this.vx = -this.vx;
+            }
+          }
       }// paddleCollision
 
       reset() {

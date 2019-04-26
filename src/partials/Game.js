@@ -6,10 +6,11 @@ import{ SVG_NS, KEYS } from "../settings";
 
 
 export default class Game {
-  constructor(element, width, height) {
+  constructor(element, width, height, color) {
     this.element = element;
     this.width = width;
     this.height = height;
+    this.color = "";
 
     this.gameElement = document.getElementById(this.element);
 
