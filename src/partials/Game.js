@@ -1,10 +1,7 @@
-
-
-import{ SVG_NS, KEYS } from "../settings";
-
 import Board from './Board';
 import Paddle from './Paddle';
-
+import Ball from './Ball';
+import{ SVG_NS, KEYS } from "../settings";
 //console.log(SVG_NS);
 
 
@@ -44,14 +41,14 @@ export default class Game {
         
 
     );
-    console.log('player1');
-    console.log('player2');
+    
+    this.ball = new Ball(8, this.width, this.height);
 
   }
   	// End of constructor
 
   render() {
-    // ....
+    // be sure to empty out the last frame before re-rendering
     this.gameElement.innerHTML = '';
     let svg = document.createElementNS(SVG_NS, "svg");
     svg.setAttributeNS(null, "width", this.width);
@@ -62,6 +59,8 @@ export default class Game {
     this.board.render(svg);
     this.player1.render(svg);
     this.player2.render(svg);
+
+    this.ball.render(svg, this.player1, this.player2);
 
     
   }
