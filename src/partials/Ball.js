@@ -2,12 +2,13 @@ import{ SVG_NS, KEYS } from "../settings";
 import { SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG } from "constants";
 
 export default class Ball {
-    constructor(radius, boardWidth, boardHeight) {
+    constructor(radius, boardWidth, boardHeight, color = 'blue') {
       this.radius = radius;
       this.boardWidth = boardWidth;
       this.boardHeight = boardHeight;
       this.direction = 1;
       this.ping = new Audio('public/sounds/pong-01.wav');
+      this.color = color;
 
 
       this.reset();
@@ -75,7 +76,7 @@ export default class Ball {
 
       }
 
-    
+      
       // add declare winner method
       //document.addEventListener(player.score <= 10) { alert("Winner!");
        // });
@@ -106,7 +107,7 @@ export default class Ball {
         circle.setAttributeNS(null, 'r', this.radius);
         circle.setAttributeNS(null, 'cx', this.x); // x position
         circle.setAttributeNS(null, 'cy', this.y);
-        circle.setAttributeNS(null, 'fill', '#00FF00');
+        circle.setAttributeNS(null, 'fill', this.color);
         svg.appendChild(circle);
 
         const rightGoal = this.x + this.radius >= this.boardWidth;
