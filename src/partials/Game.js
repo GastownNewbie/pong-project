@@ -11,23 +11,27 @@ export default class Game {
     this.element = element;
     this.width = width;
     this.height = height;
+    
 
     this.gameElement = document.getElementById(this.element);
 
-    this.board = new Board(this.width, this.height);
+    this.board = new Board(this.width, this.height, this.color);
 
     this.paddleWidth = 8;
     this.paddleHeight = 56;
     this.boardGap = 10;
+    
     
     this.player1 = new Paddle(
       this.height,
       this.paddleWidth,
       this.paddleHeight,
       this.boardGap,
+      
       (this.height - this.paddleHeight) / 2,
       KEYS.a,
-      KEYS.z
+      KEYS.z,
+      'green'
     );
 
     this.player2 = new Paddle(
@@ -44,6 +48,8 @@ export default class Game {
     this.score2 = new Score(this.width /2 + 25, 30, 30);
     
     this.ball = new Ball(8, this.width, this.height);
+    
+    this.ball2 = new Ball(6, this.width, this.height);
 
       document.addEventListener('keydown', (event) => {
         console.log(event);
@@ -79,6 +85,7 @@ export default class Game {
     this.player2.render(svg);
 
     this.ball.render(svg, this.player1, this.player2);
+    this.ball2.render(svg, this.player1, this.player2);
 
     this.score1.render(svg, this.player1.score);
     this.score2.render(svg, this.player2.score);

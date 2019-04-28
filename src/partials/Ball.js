@@ -1,4 +1,5 @@
 import{ SVG_NS, KEYS } from "../settings";
+import { SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG } from "constants";
 
 export default class Ball {
     constructor(radius, boardWidth, boardHeight) {
@@ -73,6 +74,9 @@ export default class Ball {
 
 
       }
+      // add declare winner method
+      //document.addEventListener(player.score <= 10) { alert("Winner!");
+       // });
 
       reset() {
         this.x = this.boardWidth / 2;
