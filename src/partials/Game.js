@@ -57,26 +57,7 @@ export default class Game {
           case KEYS.spaceBar:
             this.pause = !this.pause;
           break;
-        }
-
-        function boom() {
-          // detect winning player
-          let paddle = vx > this.width/2 ? this.player1 : this.player2
-        
-          // create the gradient
-          let gradient = draw.gradient('radial', function(stop) {
-            stop.at(0, paddle.attr('fill'), 1)
-            stop.at(1, paddle.attr('fill'), 0)
-          })
-        
-          // create circle to carry the gradient
-          let blast = draw.circle(300)
-          blast.center(this.ball.cx(), this.ball.cy()).fill(gradient)
-        
-          // animate to invisibility
-          blast.animate(1000, '>').opacity(0).after(function() {
-            blast.remove()
-          })
+    
         }
         console.log(this.pause);
 });
