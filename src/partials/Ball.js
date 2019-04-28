@@ -48,6 +48,8 @@ export default class Ball {
             this.vx = -this.vx;
             // sound for hitting paddle
             this.ping.play();
+               // add pop-up Save!
+               alert("Yellow made a save!");
 
           }// end of if
         } else {
@@ -60,9 +62,11 @@ export default class Ball {
               (this.y >= topY && this.y <= bottomY)
             ){
               this.vx = -this.vx;
+             
               // sound for hitting paddle
               this.ping.play();
-              
+                // add pop-up Save!
+                alert("Green made a save!");
             }
           }
       }// paddleCollision
@@ -77,7 +81,7 @@ export default class Ball {
       }
 
       
-      // add declare winner method
+      // add declare winner method - couldn't figure out sequence/code
       //document.addEventListener(player.score <= 10) { alert("Winner!");
        // });
 

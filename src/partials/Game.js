@@ -47,6 +47,8 @@ export default class Game {
 
     this.score1 = new Score(this.width /2 - 50, 30, 30);
     this.score2 = new Score(this.width /2 + 25, 30, 30);
+
+  
     
     this.ball = new Ball(8, this.width, this.height);
     this.ball2 = new Ball(6, this.width, this.height);
