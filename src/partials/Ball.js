@@ -74,6 +74,8 @@ export default class Ball {
 
 
       }
+
+    
       // add declare winner method
       //document.addEventListener(player.score <= 10) { alert("Winner!");
        // });
