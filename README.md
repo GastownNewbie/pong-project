@@ -1,3 +1,5 @@
+<img src="http://mrg.bz/5hxIaQ" alt="keyboard">
+
 # Pong Game
 
 A basic pong game using SVGs and javascript.
@@ -26,19 +28,19 @@ Before instantiating each player in the game, add Key constants to settings.js
     z: "z",        // player 1 down key
     up: "ArrowUp",       // player 2 up key
     down: "ArrowDown",     // player 2 down key
-   spaceBar: " " // to use later...
+    spaceBar: " " // to use later...
 
 
 Use an Eventlistener to listen for 'keydown' events.
 
-document.addEventListener('keydown', (event) => {
+    document.addEventListener('keydown', (event) => {
         console.log(event);
         switch(event.key){
           case KEYS.spaceBar:
             this.pause = !this.pause;
           break;
     
-  up() {
+    up() {
         this.y = this.y - this.speed;
         this.y = Math.max(0, this.y - this.speed);
     }
@@ -53,12 +55,36 @@ document.addEventListener('keydown', (event) => {
         let topY = y;
         let bottomY = y + height;
         return [leftX, rightX, topY, bottomY];
+        
 **Player 1:**
 * a: up
 * z: down
+
+       this.player1 = new Paddle(
+      this.height,
+      this.paddleWidth,
+      this.paddleHeight,
+      this.boardGap,
+      
+      (this.height - this.paddleHeight) / 2,
+      KEYS.a,
+      KEYS.z,
+      'green'
+        );
+
 
 **Player 2:**
 * ▲ : up
 * ▼: down
 
-Try playing or making the game! We hope you enjoy it.
+        this.player2 = new Paddle(
+        this.height,
+        this.paddleWidth,
+        this.paddleHeight,
+        (this.width - this.boardGap - this.paddleWidth),
+        (this.height - this.paddleHeight) / 2,
+        KEYS.up,
+        KEYS.down
+        );
+
+Try playing or making the game! Hope you enjoy it.
