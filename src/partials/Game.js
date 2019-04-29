@@ -64,6 +64,15 @@ export default class Game {
         console.log(this.pause);
 });
 
+  // declare a winner
+  //function winner(score1, score2){
+  //  if
+  //    (this.score1 == 5) alert("Green won!");
+    //else 
+     // (this.score2 === 15) alert("Yellow won!");
+  //}
+  
+
   }
   	// End of constructor
 
