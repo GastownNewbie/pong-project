@@ -1,5 +1,3 @@
-<img src="http://mrg.bz/5hxIaQ" alt="keyboard">
-
 # Pong Game
 
 A basic pong game using SVGs and javascript.
