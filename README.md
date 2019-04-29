@@ -1,3 +1,4 @@
+![pong](https://user-images.githubusercontent.com/49002281/56876871-3cd9e280-69ff-11e9-9b23-1371ac95a042.jpg)
 # Pong Game
 
 A basic pong game using SVGs and javascript.
